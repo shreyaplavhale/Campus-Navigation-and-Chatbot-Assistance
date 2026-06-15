@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lamp Switch Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+ <h1 class="main-heading">
+  Welcome to Campus Navigation and Chatbot Assistant</h1>
+
+  <p class="tagline">
+  Where smart navigation meets intelligent conversation.
+</p>
+
+  <!-- Lamp -->
+  <div class="lamp-wrapper" id="lampWrapper">
+      <div class="lamp"></div>
+      <div class="pull-rope" onclick="toggleLamp()"></div>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-box" class="form-box">
+    <h2>Login</h2>
+
+    <form method="POST" action="{{ url_for('login') }}">
+      <input type="email" name="email" placeholder="Enter Email" required>
+      <input type="password" name="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+   
+
+    <div class="toggle-link" onclick="showSignup()">No account? Sign up</div>
+  </div>
+
+  <!-- Signup Form -->
+  <div id="signup-box" class="form-box">
+    <h2>Sign Up</h2>
+
+    <form method="POST" action="{{ url_for('signup') }}">
+      <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="password" name="password" placeholder="Create Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="toggle-link" onclick="showLogin()">Already have an account? Login</div>
+  </div>
+
+ <!-- forgot password Form -->
+<div id="forgot-password-box" class="form-box">
+    <h2>Forgot Password</h2>
+
+    <form method="POST" action="{{ url_for('forgot_password') }}">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="new_password" placeholder="Enter new password" required>
+        <button type="submit">Reset Password</button>
+    </form>
+
+   
+</div>
+
+ 
+
+  <!-- JS at bottom -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
